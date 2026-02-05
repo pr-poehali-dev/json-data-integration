@@ -55,7 +55,7 @@ const Index = () => {
           Разблок поможет!
         </h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto">
-          AI-помощник + юристы уже помогли разблокировать 340+ счетов по 115-ФЗ в 2025 году
+          AI-помощник + юристы уже помогли разблокировать 210+ счетов по 115-ФЗ в 2025 году
         </p>
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center px-4">
           <Button 
