@@ -230,7 +230,7 @@ const Index = () => {
             <Card className="border-2 hover:border-primary transition-all hover:shadow-lg hover:-translate-y-1 animate-on-scroll opacity-0 translate-y-8">
               <CardHeader>
                 <div className="text-5xl mb-4">🎯</div>
-                <CardTitle>340+ счетов разблокировано</CardTitle>
+                <CardTitle>190+ счетов разблокировано</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">
