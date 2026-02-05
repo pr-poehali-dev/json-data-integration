@@ -52,7 +52,7 @@ const Index = () => {
       <section className="container mx-auto px-4 py-12 md:py-20 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
           Счет <span className="text-accent">заблокировали?</span><br />
-          Разблокируем за 7 дней
+          Разблок поможет!
         </h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto">
           AI-помощник + юристы уже помогли разблокировать 340+ счетов по 115-ФЗ в 2025 году
