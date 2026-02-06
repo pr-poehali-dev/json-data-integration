@@ -24,14 +24,50 @@ export default function TrialModal({ open, onOpenChange }: TrialModalProps) {
     phone: '',
     consent: false,
   });
+  const [nameError, setNameError] = useState('');
+
+  const validateFullName = (name: string): boolean => {
+    const trimmedName = name.trim();
+    const cyrillicPattern = /^[А-ЯЁа-яё\s-]+$/;
+    const words = trimmedName.split(/\s+/).filter(word => word.length > 0);
+    
+    if (!cyrillicPattern.test(trimmedName)) {
+      setNameError('Введите ФИО на русском языке');
+      return false;
+    }
+    
+    if (words.length < 2) {
+      setNameError('Введите свое полное ФИО');
+      return false;
+    }
+    
+    setNameError('');
+    return true;
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFormData({ ...formData, name: value });
+    if (value.trim()) {
+      validateFullName(value);
+    } else {
+      setNameError('');
+    }
+  };
 
   const isFormValid = formData.name.trim() !== '' && 
                       formData.email.trim() !== '' && 
                       formData.phone.trim() !== '' && 
-                      formData.consent;
+                      formData.consent &&
+                      nameError === '';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateFullName(formData.name)) {
+      return;
+    }
+    
     if (!formData.consent) {
       alert('Необходимо согласие на обработку персональных данных');
       return;
@@ -40,6 +76,7 @@ export default function TrialModal({ open, onOpenChange }: TrialModalProps) {
     window.open('https://t.me/razblok_bot', '_blank');
     onOpenChange(false);
     setFormData({ name: '', email: '', phone: '', consent: false });
+    setNameError('');
   };
 
   return (
@@ -53,14 +90,18 @@ export default function TrialModal({ open, onOpenChange }: TrialModalProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Имя *</Label>
+            <Label htmlFor="name">Полное ФИО *</Label>
             <Input
               id="name"
-              placeholder="Иван Иванов"
+              placeholder="Иванов Иван Петрович"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={handleNameChange}
               required
+              className={nameError ? 'border-red-500' : ''}
             />
+            {nameError && (
+              <p className="text-sm text-red-600 font-medium">{nameError}</p>
+            )}
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email *</Label>
