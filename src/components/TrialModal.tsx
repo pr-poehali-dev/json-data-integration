@@ -46,11 +46,6 @@ export default function TrialModal({ open, onOpenChange }: TrialModalProps) {
         setNameError('Каждая часть ФИО должна содержать минимум 2 буквы');
         return false;
       }
-      
-      if (!/^[А-ЯЁ][а-яё-]+$/.test(word)) {
-        setNameError('Каждая часть ФИО должна начинаться с заглавной буквы');
-        return false;
-      }
     }
     
     if (words.length === 2) {
