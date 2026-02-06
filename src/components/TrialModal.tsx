@@ -41,6 +41,32 @@ export default function TrialModal({ open, onOpenChange }: TrialModalProps) {
       return false;
     }
     
+    for (const word of words) {
+      if (word.length < 2) {
+        setNameError('Каждая часть ФИО должна содержать минимум 2 буквы');
+        return false;
+      }
+      
+      if (!/^[А-ЯЁ][а-яё-]+$/.test(word)) {
+        setNameError('Каждая часть ФИО должна начинаться с заглавной буквы');
+        return false;
+      }
+    }
+    
+    if (words.length === 2) {
+      if (words[0].length < 3 || words[1].length < 3) {
+        setNameError('Введите корректные Фамилию и Имя (минимум 3 буквы каждое)');
+        return false;
+      }
+    }
+    
+    if (words.length >= 3) {
+      if (words[0].length < 3 || words[1].length < 3 || words[2].length < 3) {
+        setNameError('Введите корректное ФИО (минимум 3 буквы в каждой части)');
+        return false;
+      }
+    }
+    
     setNameError('');
     return true;
   };
