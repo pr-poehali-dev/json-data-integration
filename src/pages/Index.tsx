@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ChatSimulator from "@/components/ChatSimulator";
+import TrialModal from "@/components/TrialModal";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -41,7 +43,7 @@ const Index = () => {
           <Button 
             size="sm"
             className="bg-primary hover:bg-secondary text-white text-xs md:text-base md:px-6 shadow-lg hover:shadow-xl transition-all duration-300 btn-shimmer"
-            onClick={() => scrollToSection('pricing')}
+            onClick={() => setIsModalOpen(true)}
           >
             <span className="hidden sm:inline">Попробовать бесплатно</span>
             <span className="sm:hidden">Попробовать</span>
@@ -61,7 +63,7 @@ const Index = () => {
           <Button 
             size="lg" 
             className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-primary hover:bg-secondary w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 btn-shimmer"
-            onClick={() => scrollToSection('demo')}
+            onClick={() => setIsModalOpen(true)}
           >
             Попробовать бесплатно
           </Button>
@@ -420,6 +422,8 @@ const Index = () => {
           <p className="opacity-70 mt-2 text-sm">От создателя "Заметки Банкира" — Юлии Левицкой</p>
         </div>
       </footer>
+
+      <TrialModal open={isModalOpen} onOpenChange={setIsModalOpen} />
     </div>
   );
 };
