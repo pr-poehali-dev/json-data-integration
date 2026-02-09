@@ -120,14 +120,56 @@ const Index = () => {
             </Card>
           </div>
 
-          <Card className="max-w-2xl mx-auto text-center bg-white shadow-xl animate-on-scroll opacity-0 translate-y-8">
-            <CardContent className="pt-8 pb-8 md:pt-12 md:pb-12">
-              <div className="text-3xl md:text-6xl font-bold text-accent mb-2 md:mb-4">Более 2 млн граждан</div>
-              <p className="text-sm md:text-lg text-muted-foreground">
-                Столкнулись с блокировкой своих карт
-              </p>
-            </CardContent>
-          </Card>
+          <div className="max-w-5xl mx-auto animate-on-scroll opacity-0 translate-y-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12">Видео отзывы наших клиентов</h2>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <div className="aspect-[9/16] bg-muted flex items-center justify-center rounded-t-lg overflow-hidden">
+                    <div className="text-center p-6">
+                      <div className="text-4xl mb-3">🎥</div>
+                      <p className="text-sm text-muted-foreground">Место для видео 1</p>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-sm font-semibold">Клиент 1</p>
+                    <p className="text-xs text-muted-foreground mt-1">Разблокировка за 3 дня</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <div className="aspect-[9/16] bg-muted flex items-center justify-center rounded-t-lg overflow-hidden">
+                    <div className="text-center p-6">
+                      <div className="text-4xl mb-3">🎥</div>
+                      <p className="text-sm text-muted-foreground">Место для видео 2</p>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-sm font-semibold">Клиент 2</p>
+                    <p className="text-xs text-muted-foreground mt-1">Разблокировка за 5 дней</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <div className="aspect-[9/16] bg-muted flex items-center justify-center rounded-t-lg overflow-hidden">
+                    <div className="text-center p-6">
+                      <div className="text-4xl mb-3">🎥</div>
+                      <p className="text-sm text-muted-foreground">Место для видео 3</p>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-sm font-semibold">Клиент 3</p>
+                    <p className="text-xs text-muted-foreground mt-1">Разблокировка за 2 дня</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
 
