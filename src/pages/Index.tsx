@@ -159,7 +159,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex gap-4 md:gap-8 items-start flex-row-reverse animate-on-scroll opacity-0 translate-y-8">
+          <div className="flex gap-4 md:gap-8 items-start md:flex-row-reverse animate-on-scroll opacity-0 translate-y-8">
             <div className="flex-shrink-0 w-14 h-14 md:w-20 md:h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl md:text-3xl font-bold">
               2
             </div>
